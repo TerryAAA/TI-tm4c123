@@ -11,13 +11,13 @@ void TIMER0A_Handler(void){
 
 static void Timer_Init(void){
 
-  SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);							//¶¨Ê±Æ÷0Ê¹ÄÜ				
-  TimerConfigure(TIMER0_BASE,TIMER_CFG_PERIODIC);						//32Î»ÖÜÆÚ¶¨Ê±Æ÷				
-  TimerLoadSet(TIMER0_BASE,TIMER_A,SysCtlClockGet()/1000);	//Éè¶¨×°ÔØÖµ,£¨80M/1000£©*1/80M=1ms				
-  IntEnable(INT_TIMER0A);																		//×ÜÖĞ¶ÏÊ¹ÄÜ				
-  TimerIntEnable(TIMER0_BASE,TIMER_TIMA_TIMEOUT); 					//ÖĞ¶ÏÊä³ö, ÉèÖÃÄ£Ê½;			
-  TimerIntRegister(TIMER0_BASE,TIMER_A,TIMER0A_Handler);		//ÖĞ¶Ïº¯Êı×¢²á
-  TimerEnable(TIMER0_BASE,TIMER_A); 												//¶¨Ê±Æ÷Ê¹ÄÜ¿ªÊ¼¼ÆÊı
+  SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);							//å®šæ—¶å™¨0ä½¿èƒ½				
+  TimerConfigure(TIMER0_BASE,TIMER_CFG_PERIODIC);						//32ä½å‘¨æœŸå®šæ—¶å™¨				
+  TimerLoadSet(TIMER0_BASE,TIMER_A,SysCtlClockGet()/1000);	//è®¾å®šè£…è½½å€¼,ï¼ˆ80M/1000ï¼‰*1/80M=1ms				
+  IntEnable(INT_TIMER0A);																		//æ€»ä¸­æ–­ä½¿èƒ½				
+  TimerIntEnable(TIMER0_BASE,TIMER_TIMA_TIMEOUT); 					//ä¸­æ–­è¾“å‡º, è®¾ç½®æ¨¡å¼;			
+  TimerIntRegister(TIMER0_BASE,TIMER_A,TIMER0A_Handler);		//ä¸­æ–­å‡½æ•°æ³¨å†Œ
+  TimerEnable(TIMER0_BASE,TIMER_A); 												//å®šæ—¶å™¨ä½¿èƒ½å¼€å§‹è®¡æ•°
   IntPrioritySet(INT_TIMER0A,USER_INT7);
 }
 
